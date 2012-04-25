@@ -13,4 +13,8 @@ capybara-*.html
 /spec/tmp/*
 **.orig
 rerun.txt
+<<<<<<< HEAD
 pickle-email-*.html
+=======
+pickle-email-*.html
+>>>>>>> b82f8fecf8ff16372042f3f0a5545070d5697693
