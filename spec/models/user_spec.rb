@@ -12,4 +12,7 @@ describe User do
 
   it { should validate_uniqueness_of :email }
 
+  it { should_not allow_value("foobar").for(:email) }
+  it { should allow_value("foo@bar.com").for(:email) }
+
 end
