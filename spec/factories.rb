@@ -7,4 +7,9 @@ FactoryGirl.define do
     password_confirmation 'password'
   end
 
+  factory :project do
+    name 'test project'
+    user
+  end
+
 end
