@@ -4,4 +4,8 @@ module UserMacros
     cookies[:auth_token] = user.id
   end
 
+  def log_out
+    cookies[:auth_token] = nil
+  end
+
 end

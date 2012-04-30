@@ -2,6 +2,7 @@ Tangela::Application.routes.draw do
 
   resources :users
   resources :sessions, only: [ :create, :destroy, :new ]
+  resources :projects
 
   root to: 'users#new'
 

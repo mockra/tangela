@@ -7,5 +7,13 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find cookies[:auth_token] if cookies[:auth_token]
   end
 
+  def signed_in?
+    !current_user.nil?
+  end
+
+  def authenticate
+    redirect_to new_user_url unless signed_in?
+  end
+
   helper_method :current_user
 end

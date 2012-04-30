@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
+  has_many :projects
+
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
   before_create { generate_auth_token }
