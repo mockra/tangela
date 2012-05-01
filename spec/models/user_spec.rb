@@ -15,4 +15,7 @@ describe User do
   it { should_not allow_value("foobar").for(:email) }
   it { should allow_value("foo@bar.com").for(:email) }
 
+  it { should have_many :projects }
+  it { should have_many :resources }
+
 end
