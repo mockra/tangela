@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
   has_many :projects
   has_many :resources
+  has_many :notes
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
