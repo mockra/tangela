@@ -2,7 +2,6 @@ require 'spec_helper'
 
 describe Resource do
 
-  it { should validate_presence_of :type }
   it { should validate_presence_of :value }
   it { should validate_presence_of :user_id }
   it { should validate_presence_of :project_id }
@@ -10,30 +9,27 @@ describe Resource do
   it { should belong_to :user }
   it { should belong_to :project }
 
-  describe 'value format' do
+  describe 'find_type' do
     before do
-      @resource = Resource.new
-      @resource.user_id = 1
-      @resource.project_id = 1
-      @resource.type = 'twitter'
-    end
-    describe 'failure' do
-      it 'should not accept a single word' do
-        @resource.value = 'string'
-        @resource.should_not be_valid
-      end
+      @attr = { user_id: 1, project_id: 1 }
     end
 
-    describe 'success' do
-      it 'should accept a twitter handle' do
-        @resource.value = '@Mockra_'
-        @resource.should be_valid
-      end
+    it 'should be a twitter handle' do
+      @resource = Resource.create @attr.merge value: '@Mockra_'
+      @resource.reload
+      @resource.format.should == 'twitter'
+    end
 
-      it 'should accept a link' do
-        @resource.value = 'www.google.com'
-        @resource.should be_valid
-      end
+    it 'should be a string' do
+      @resource = Resource.create @attr.merge value: 'string'
+      @resource.reload
+      @resource.format.should == 'string'
+    end
+
+    it 'should be a link' do
+      @resource = Resource.create @attr.merge value: 'www.google.com'
+      @resource.reload
+      @resource.format.should == 'link'
     end
   end
 

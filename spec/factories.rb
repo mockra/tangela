@@ -13,7 +13,6 @@ FactoryGirl.define do
   end
 
   factory :resource do
-    type 'img'
     value 'http://mockra.com/image.png'
     user
     project
