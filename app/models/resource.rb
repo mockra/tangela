@@ -20,12 +20,12 @@ class Resource < ActiveRecord::Base
   end
 
   def twitter?
-    self.format = 'twitter' if self.value =~ /\A@[A-Z0-9_]{1,}/i
+    self.format = 'twitter' if self.value =~ /\A@[A-Z0-9_]{1,}\Z/i
   end
 
   def link?
     self.format = 'link' if self.value =~
-      /\Ahttp|https|www|(:\/\/){0,1}\.{0,1}[a-z0-9-]{1,}\.{1}.*/i
+      /\Ahttp|https|www|(:\/\/){0,1}\.{0,1}[a-z0-9-]{1,}\.{1}[^ ]*\Z/i
   end
 
 end

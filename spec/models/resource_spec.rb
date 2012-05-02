@@ -17,21 +17,30 @@ describe Resource do
     end
 
     it 'should be a twitter handle' do
-      @resource.value = '@Mockra_'
-      @resource.save
-      @resource.format.should == 'twitter'
+      handles = %w[ @Mockra_ @dhh @mo_ckra ]
+      handles.each do |handle|
+        @resource.value = handle
+        @resource.save
+        @resource.format.should == 'twitter'
+      end
     end
 
     it 'should be a string' do
-      @resource.value = 'string'
-      @resource.save
-      @resource.format.should == 'string'
+      strings = [ 'string' 'str_ing' 'testing. sentences.' 'this @test' ]
+      strings.each do |string|
+        @resource.value = string
+        @resource.save
+        @resource.format.should == 'string'
+      end
     end
 
     it 'should be a link' do
-      @resource.value = 'www.google.com'
-      @resource.save
-      @resource.format.should == 'link'
+      links = %w[ google.com http://test.net https://www.google.com ]
+      links.each do |link|
+        @resource.value = 'www.google.com'
+        @resource.save
+        @resource.format.should == 'link'
+      end
     end
   end
 
