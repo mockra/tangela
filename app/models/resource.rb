@@ -2,7 +2,7 @@ class Resource < ActiveRecord::Base
 
   attr_accessible :value
 
-  before_create :find_format
+  before_save :find_format
 
   belongs_to :user
   belongs_to :project
