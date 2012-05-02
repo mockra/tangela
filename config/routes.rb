@@ -7,6 +7,9 @@ Tangela::Application.routes.draw do
     resources :resources
   end
 
+  scope :constraints => lambda{|req| !req.cookies[:auth_token].blank? } do
+    root to: 'projects#index'
+  end
   root to: 'users#new'
 
   # The priority is based upon order of creation:

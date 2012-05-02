@@ -9,7 +9,7 @@ describe Resource do
   it { should belong_to :user }
   it { should belong_to :project }
 
-  describe 'find_type' do
+  describe 'find_format' do
     before do
       @resource = Resource.new
       @resource.user_id = 1
