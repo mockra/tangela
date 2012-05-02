@@ -11,24 +11,26 @@ describe Resource do
 
   describe 'find_type' do
     before do
-      @attr = { user_id: 1, project_id: 1 }
+      @resource = Resource.new
+      @resource.user_id = 1
+      @resource.project_id = 1
     end
 
     it 'should be a twitter handle' do
-      @resource = Resource.create @attr.merge value: '@Mockra_'
-      @resource.reload
+      @resource.value = '@Mockra_'
+      @resource.save
       @resource.format.should == 'twitter'
     end
 
     it 'should be a string' do
-      @resource = Resource.create @attr.merge value: 'string'
-      @resource.reload
+      @resource.value = 'string'
+      @resource.save
       @resource.format.should == 'string'
     end
 
     it 'should be a link' do
-      @resource = Resource.create @attr.merge value: 'www.google.com'
-      @resource.reload
+      @resource.value = 'www.google.com'
+      @resource.save
       @resource.format.should == 'link'
     end
   end

@@ -1,5 +1,7 @@
 class Resource < ActiveRecord::Base
 
+  attr_accessible :value
+
   before_create :find_format
 
   belongs_to :user
