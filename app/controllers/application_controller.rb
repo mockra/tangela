@@ -15,5 +15,10 @@ class ApplicationController < ActionController::Base
     redirect_to new_session_url unless signed_in?
   end
 
+  def project
+    @project = current_user.projects.find_by_id params[:project_id]
+    redirect_to root_url if @project.nil?
+  end
+
   helper_method :current_user
 end

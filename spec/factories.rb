@@ -18,4 +18,10 @@ FactoryGirl.define do
     project
   end
 
+  factory :note do
+    content 'test content'
+    user
+    project
+  end
+
 end

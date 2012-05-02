@@ -22,11 +22,4 @@ class ResourcesController < ApplicationController
     redirect_to @project
   end
 
-  private
-
-  def project
-    @project = current_user.projects.find_by_id params[:project_id]
-    redirect_to root_url if @project.nil?
-  end
-
 end
