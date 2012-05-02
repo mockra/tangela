@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate
-    redirect_to new_user_url unless signed_in?
+    redirect_to new_session_url unless signed_in?
   end
 
   helper_method :current_user

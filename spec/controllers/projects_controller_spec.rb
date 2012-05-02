@@ -71,14 +71,14 @@ describe ProjectsController do
     end
   end
 
-  describe 'not logged in' do
+  describe 'no current_user' do
     before do
       log_out
     end
-    
+
     it 'should redirect the visitor' do
       get :new
-      response.should redirect_to new_user_url
+      response.should redirect_to new_session_url
     end
   end
 

@@ -11,14 +11,13 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    @project = Project.new
+    @project = current_user.projects.build
   end
 
   def create
-    @project = Project.new params[:project]
-    @project.user_id = current_user.id
+    @project = current_user.projects.build params[:project]
     if @project.save
-      redirect_to root_url, notice:
+      redirect_to projects_url, notice:
         'Project created.'
     else
       render :new
