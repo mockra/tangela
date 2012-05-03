@@ -1,7 +1,7 @@
 module UserMacros
 
   def sign_in( user )
-    cookies[:auth_token] = user.id
+    cookies[:auth_token] = user.auth_token
   end
 
   def log_out

@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   private
 
   def current_user
-    @current_user ||= User.find cookies[:auth_token] if cookies[:auth_token]
+    @current_user ||= User.find_by_auth_token cookies[:auth_token] if cookies[:auth_token]
   end
 
   def signed_in?
@@ -20,5 +20,5 @@ class ApplicationController < ActionController::Base
     redirect_to root_url if @project.nil?
   end
 
-  helper_method :current_user
+  helper_method :current_user, :signed_in?
 end
