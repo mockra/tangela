@@ -14,6 +14,7 @@ Tangela::Application.routes.draw do
 
   resources :projects do
     resources :resources
+    resources :notes
   end
 
   root to: 'projects#index', constraints:

@@ -1,0 +1,7 @@
+= @project.name
+
+- @project.resources.each do |resource|
+  = display resource
+
+- @project.notes.each do |note|
+  = note.content
