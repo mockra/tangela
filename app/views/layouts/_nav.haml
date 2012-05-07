@@ -1,13 +1,15 @@
-.navbar
-  = link_to 'Tangela', root_url
-  %ul.nav
-    -if signed_in?
-      %li
-        = link_to current_user.name, current_user, class: 'dropdown-toggle', 'data-toggle' => 'dropdown'
-      %li
-        = link_to 'Log out', logout_url
-    - else
-      %li
-        = link_to 'Log in', login_url
-      %li
-        = link_to 'Register', new_user_url
+.navbar.navbar-fixed-top
+  .navbar-inner
+    .container
+      = link_to 'Tangela', root_url, class: 'brand'
+      %ul.nav
+        -if signed_in?
+          %li
+            = link_to current_user.name, current_user
+          %li
+            = link_to 'Log out', logout_url
+        - else
+          %li
+            = link_to 'Log in', login_url
+          %li
+            = link_to 'Register', new_user_url

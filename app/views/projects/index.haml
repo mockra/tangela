@@ -1,5 +1,10 @@
-.projects
-  - @projects.each do |project|
-    .projects-box
-      %h1
-        = link_to project.name, project
+.row
+  .projects.span10.offset1
+    - @projects.each do |project|
+      .projects-box
+        %h1
+          = link_to project.name, project
+        %ul.notes
+          - project.notes.top.each do |note|
+            %li
+              = note.content

@@ -1,2 +1,23 @@
+@import 'bootstrap'
+
 body
   margin-top: 60px
+
+ul.nav
+  @extend .pull-right
+
+.navbar-inner
+  @include gradient-vertical(#FFF, #FAFAFA)
+  $shadow: 0 0 10px rgba(0, 0, 0, 0.1)
+  @include box-shadow($shadow)
+  border-bottom: 1px solid #CACACA
+
+.navbar-fixed-top .brand
+  color: black
+  font-weight: bold
+
+.navbar .nav > li > a
+  color: black
+
+.navbar .nav > li > a:hover
+  color: #4747FF
