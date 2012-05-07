@@ -1,7 +1,14 @@
-= @project.name
+.project
+  .title
+    %h1
+      = @project.name
 
-- @project.resources.each do |resource|
-  = display resource
+  %ul.resources
+    - @resources.each do |resource|
+      %li
+        = display resource
 
-- @project.notes.each do |note|
-  = note.content
+  %ul.notes
+    - @project.notes.each do |note|
+      %li
+        = note.content

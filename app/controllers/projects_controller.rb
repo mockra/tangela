@@ -8,6 +8,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
+    @resources = @project.resources.all
   end
 
   def new

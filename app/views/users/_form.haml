@@ -1,10 +1,16 @@
-= form_for @user do |f|
-  = f.label :email
-  = f.text_field :email
-  = f.label :name
-  = f.text_field :name
-  = f.label :password
-  = f.password_field :password
-  = f.label :password_confirmation
-  = f.password_field :password_confirmation
-  = f.submit 'Log in'
+.user-form
+  = form_for @user do |f|
+    .field
+      = f.label :email
+      = f.text_field :email
+    .field
+      = f.label :name
+      = f.text_field :name
+    .field
+      = f.label :password
+      = f.password_field :password
+    .field
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation
+    .action
+      = f.submit 'Log in'

@@ -1,2 +1,5 @@
-- @projects.each do |project|
-  = @project.name
+.projects
+  - @projects.each do |project|
+    .projects-box
+      %h1
+        = link_to project.name, project

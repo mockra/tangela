@@ -1,4 +1,7 @@
-= form_for @project do |f|
-  = f.label :name
-  = f.text_field :name
-  = f.submit
+.project-form
+  = form_for @project do |f|
+    .field
+      = f.label :name
+      = f.text_field :name
+    .action
+      = f.submit

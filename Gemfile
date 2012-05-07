@@ -8,7 +8,6 @@ gem 'rails', '3.2.3'
 group :test, :development do
   gem 'sqlite3'
   gem 'rspec-rails'
-  gem 'bootstrap-sass'
 end
 
 group :test do
@@ -34,6 +33,7 @@ end
 
 gem 'jquery-rails'
 gem 'haml'
+gem 'bourbon'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'

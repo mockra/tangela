@@ -1,6 +1,10 @@
-= form_tag sessions_path do
-  = label_tag :email
-  = text_field_tag :email
-  = label_tag :password
-  = password_field_tag :password
-  = submit_tag
+.login
+  = form_tag sessions_path do
+    .field
+      = label_tag :email
+      = text_field_tag :email
+    .field
+      = label_tag :password
+      = password_field_tag :password
+    .action
+      = submit_tag
