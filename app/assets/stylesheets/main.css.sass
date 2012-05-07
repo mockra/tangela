@@ -1,10 +1,8 @@
 @import 'bootstrap'
+@import url(http://fonts.googleapis.com/css?family=Audiowide)
 
 body
   margin-top: 60px
-
-ul.nav
-  @extend .pull-right
 
 .navbar-inner
   @include gradient-vertical(#FFF, #FAFAFA)
@@ -13,11 +11,28 @@ ul.nav
   border-bottom: 1px solid #CACACA
 
 .navbar-fixed-top .brand
-  color: black
+  color: #003D03
   font-weight: bold
+  text-shadow: rgba(0, 0, 0, .125) 0px 1px 0px
+  font-family: 'Audiowide', cursive
 
 .navbar .nav > li > a
   color: black
 
 .navbar .nav > li > a:hover
-  color: #4747FF
+  color: #075F0B
+
+.navbar .divider-vertical
+  height: 30px
+  margin-top: 5px
+  background-color: #eee
+  border-right: 1px solid #fff
+
+h1
+  color: #075F0B
+
+  a
+    color: #054C09
+
+  a:hover
+    color: #011302

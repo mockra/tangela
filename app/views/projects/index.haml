@@ -1,5 +1,7 @@
 .row
   .projects.span10.offset1
+    = link_to new_project_path do
+      %i.icon-file.pull-right
     - @projects.each do |project|
       .projects-box
         %h1

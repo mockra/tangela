@@ -1,14 +1,22 @@
-.project
-  .title
-    %h1
-      = @project.name
+.row
+  .project.span10.offset1
+    .title
+      %h1
+        = @project.name
+        .pull-right
+          = link_to new_project_resource_path( @project ), class: 'btn' do
+            New Resource
 
-  %ul.resources
-    - @resources.each do |resource|
-      %li
-        = display resource
+    .lists
 
-  %ul.notes
-    - @project.notes.each do |note|
-      %li
-        = note.content
+      %ul.resources
+        - @resources.each do |resource|
+          %li
+            = display resource
+
+      %hr
+
+      %ul.notes
+        - @project.notes.each do |note|
+          %li
+            = note.content
