@@ -1,7 +1,8 @@
 .navbar.navbar-fixed-top
   .navbar-inner
     .container
-      = link_to 'tangela', root_url, class: 'brand'
+      = link_to root_url, class: 'brand' do
+        tangela
       - if signed_in?
         %ul.nav
           %li.divider-vertical

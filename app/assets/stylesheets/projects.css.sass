@@ -35,11 +35,12 @@
 
   ul.resources
     list-style-type: none
-    display: inline
     padding: 4px
 
     li
+      display: inline-block
       padding: 6px
+      margin: 11px
       @include gradient-vertical(#ddd, #eee)
       height: 80px
       width: 80px
@@ -48,6 +49,7 @@
       border: 1px solid #ddd
       @include border-radius(4px)
       @include box-shadow(0 1px 1px rgba(0,0,0,.075))
+      overflow: hidden
 
     img
       max-width: 100%

@@ -4,9 +4,8 @@
       %h1
         = @project.name
         .pull-right
-          = link_to new_project_resource_path( @project ), class: 'btn' do
+          %a.btn.resource-btn
             New Resource
-
     .lists
 
       %ul.resources
@@ -20,3 +19,15 @@
         - @project.notes.each do |note|
           %li
             = note.content
+.modal.resource-modal
+  .modal-header
+    %h3
+      New Resource
+  .modal-body
+    %p
+      = form_for [ @project, @resource ] do |f|
+        = f.text_field :value
+        .modal-footer
+          %a(href="#" class="btn resource-close")
+            Close
+          = f.submit 'Submit', class: 'btn btn-primary'
