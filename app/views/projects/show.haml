@@ -9,9 +9,10 @@
             %i.icon-pencil
     .lists
 
-      %ul.resources
+      %ul.resources.resources-sortable{ url: "#{sort_resources_url}" }
         - @resources.each do |resource|
-          %li= display resource
+          = content_tag_for :li, resource do
+            = display resource
 
       %ul.notes
         - @project.notes.each do |note|

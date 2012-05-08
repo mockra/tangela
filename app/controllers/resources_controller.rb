@@ -1,6 +1,7 @@
 class ResourcesController < ApplicationController
 
-  before_filter :authenticate, :project
+  before_filter :authenticate
+  before_filter :project, except: [ :sort ]
 
   def index
     @resources = @project.resources.all
@@ -24,6 +25,13 @@ class ResourcesController < ApplicationController
   def destroy
     @project.resources.find( params[:id] ).destroy
     redirect_to @project
+  end
+
+  def sort
+    params[:resource].each_with_index do | resource_id, index |
+      Resource.update_all( { position: index }, { id: resource_id } )
+    end
+    render nothing: true
   end
 
 end

@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @resources = @project.resources.all
+    @resources = @project.resources.order 'position'
     @resource = @project.resources.build
   end
 
