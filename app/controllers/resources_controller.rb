@@ -2,6 +2,10 @@ class ResourcesController < ApplicationController
 
   before_filter :authenticate, :project
 
+  def index
+    @resources = @project.resources.all
+  end
+
   def new
     @resource = @project.resources.build
   end

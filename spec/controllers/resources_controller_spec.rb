@@ -15,6 +15,17 @@ describe ResourcesController do
     end
   end
 
+  describe 'index' do
+    before do
+      @resources = create_list :resource, 15, user: @user, project: @project
+    end
+
+    it 'should assign resources' do
+      get :index, project_id: @project
+      assigns[:resources].should == @resources
+    end
+  end
+
   describe 'create' do
     describe 'success' do
       it 'should create a resource' do
