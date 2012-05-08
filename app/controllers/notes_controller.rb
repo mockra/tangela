@@ -1,6 +1,7 @@
 class NotesController < ApplicationController
 
   before_filter :authenticate, :project
+  respond_to :html, :json
 
   def new
     @note = @project.notes.build
@@ -15,6 +16,12 @@ class NotesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def update
+    @note = @project.notes.find params[:id]
+    @note.update_attributes params[:note]
+    respond_with @note
   end
 
   def destroy

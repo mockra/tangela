@@ -1,3 +1,13 @@
-// Place all the styles related to the notes controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'bootstrap/mixins'
+
+ul.notes
+
+  input
+    width: 90%
+    display: inline
+    height: 100%
+    margin: 0
+    border: 0
+    padding: 0
+    $shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(220,220,220,.6)
+    @include box-shadow($shadow)
