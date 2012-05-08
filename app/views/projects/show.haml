@@ -6,6 +6,8 @@
         .pull-right
           %a.btn.resource-btn
             New Resource
+          = link_to project_resources_path(@project), class: 'btn' do
+            %i.icon-pencil
     .lists
 
       %ul.resources
