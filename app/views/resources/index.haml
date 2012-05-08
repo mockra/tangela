@@ -1,8 +1,8 @@
-.resources
+.resources-index
   .page-header
     %h3
       Resources for
-      = @project.name
+      = link_to @project.name, @project
   %table.resource-list.table.table-striped
     - @resources.each do |resource|
       %tr
