@@ -1,0 +1,13 @@
+.modal.resource-modal
+  .modal-header
+    %h3
+      New Resource
+  .modal-body
+    %p
+      = form_for [ @project, @resource ] do |f|
+        = f.text_field :value
+        %hr
+        .footer
+          %a(href="#" class="btn resource-close")
+            Close
+          = f.submit 'Submit', class: 'btn btn-primary'

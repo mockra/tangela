@@ -1,4 +1,4 @@
-.resources-index
+.resources-index.span10.offset1
   .page-header
     %h3
       Resources for
@@ -10,4 +10,4 @@
           = resource.value
         %td
           = link_to project_resource_path( @project, resource ), method: :delete do
-            Close
+            %i.icon-trash

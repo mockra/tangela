@@ -19,15 +19,8 @@
         - @project.notes.each do |note|
           %li
             = note.content
-.modal.resource-modal
-  .modal-header
-    %h3
-      New Resource
-  .modal-body
-    %p
-      = form_for [ @project, @resource ] do |f|
-        = f.text_field :value
-        .modal-footer
-          %a(href="#" class="btn resource-close")
-            Close
-          = f.submit 'Submit', class: 'btn btn-primary'
+            .pull-right
+              = link_to project_note_path( @project, note ), method: :delete do
+                %span.close &times;
+
+= render 'resource_modal'
