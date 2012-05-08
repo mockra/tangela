@@ -4,16 +4,14 @@
       %h1
         = @project.name
         .pull-right
-          %a.btn.resource-btn
-            New Resource
+          %a.btn.resource-btn New Resource
           = link_to project_resources_path(@project), class: 'btn' do
             %i.icon-pencil
     .lists
 
       %ul.resources
         - @resources.each do |resource|
-          %li
-            = display resource
+          %li= display resource
 
       %ul.notes
         - @project.notes.each do |note|

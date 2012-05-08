@@ -1,13 +1,11 @@
 .navbar.navbar-fixed-top
   .navbar-inner
     .container
-      = link_to root_url, class: 'brand' do
-        tangela
+      = link_to 'tangela', root_url, class: 'brand'
       - if signed_in?
         %ul.nav
           %li.divider-vertical
-          %li
-            = link_to 'Projects', projects_path
+          %li= link_to 'Projects', projects_path
 
       %ul.nav.pull-right
         - if signed_in?
@@ -17,4 +15,6 @@
               %b.caret
             %ul.dropdown-menu
               %li
-                = link_to 'Logout', logout_path
+                = link_to logout_path do
+                  %i.icon-off
+                  \ Log out
