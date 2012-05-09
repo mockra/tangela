@@ -169,6 +169,7 @@ DEPENDENCIES
   guard-rspec
   haml
   jquery-rails
+  nokogiri
   pg
   rails (= 3.2.3)
   rspec-rails
