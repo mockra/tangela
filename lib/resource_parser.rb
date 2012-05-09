@@ -3,8 +3,8 @@ require 'nokogiri'
 
 module ResourceParser
 
-  def self.link(resource)
-    url = resource.value
+  def self.link(url)
+    url = format_link url
     img = get_image url
 
     if img.nil?
@@ -19,12 +19,17 @@ module ResourceParser
   end
 
   def self.get_image(url)
-    unless url =~ /\Ahttp|https/i
-      url = "http://" + url
-    end
-
     doc = Nokogiri::HTML(open url)
     doc.css('img').first
+  rescue OpenURI::HTTPError
+    return nil
+  end
+
+  def self.format_link(url)
+    unless url =~ /\Ahttp|https/i
+      url = "http://#{url}"
+    end
+    url
   end
 
   def self.format_image(img, url)

@@ -1,3 +1,5 @@
+require 'resource_parser'
+
 class Resource < ActiveRecord::Base
 
   attr_accessible :value
@@ -24,8 +26,15 @@ class Resource < ActiveRecord::Base
   end
 
   def link?
-    self.format = 'link' if self.value =~
-      /\Ahttp|https|www|(:\/\/){0,1}\.{0,1}[a-z0-9-]{1,}\.{1}[^ ]*\Z/i
+    if self.value =~ /\Ahttp|https|www|(:\/\/){0,1}\.{0,1}[a-z0-9-]{1,}\.{1}[^ ]*\Z/i
+      set_image
+      self.format = 'link'
+    end
+  end
+
+  def set_image
+    @url = self.value
+    self.image = ResourceParser.link @url
   end
 
 end

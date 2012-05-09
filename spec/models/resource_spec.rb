@@ -44,4 +44,18 @@ describe Resource do
     end
   end
 
+  describe 'set_image' do
+    before do
+      @resource = Resource.new
+      @resource.user_id = 1
+      @resource.project_id = 1
+      @resource.value = 'google.com'
+    end
+
+    it 'should set an image' do
+      @resource.save
+      @resource.image.should_not be_nil
+    end
+  end
+
 end
