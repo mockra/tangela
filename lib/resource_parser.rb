@@ -21,7 +21,7 @@ module ResourceParser
   def self.get_image url
     doc = Nokogiri::HTML(open url)
     doc.css('img').first
-  rescue OpenURI::HTTPError
+  rescue StandardError
     return nil
   end
 
