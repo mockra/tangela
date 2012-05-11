@@ -23,7 +23,7 @@ class ResourcesController < ApplicationController
   end
 
   def destroy
-    @project.resources.find( params[:id] ).destroy
+    @project.resources.find(params[:id]).destroy
     redirect_to @project
   end
 
