@@ -1,0 +1,5 @@
+- handle = resource.value.gsub '@', ''
+= link_to "http://twitter.com/#{handle}" do
+  = resource.value
+  %br
+  = image_tag 'twitter.png'

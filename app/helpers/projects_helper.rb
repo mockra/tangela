@@ -1,17 +1,16 @@
 module ProjectsHelper
 
   def display resource
-    return twitter resource if resource.format == 'twitter'
-    return link resource if resource.format == 'link'
-    resource.value if resource.format == 'string'
+    if resource.format == 'twitter'
+      return render 'projects/resource/twitter', resource: resource
+    elsif resource.format == 'link'
+      link resource
+    elsif resource.format == 'string'
+      resource.value
+    end
   end
 
   private
-
-  def twitter resource
-    handle = resource.value.gsub '@', ''
-    link_to resource.value, "http://twitter.com/#{handle}"
-  end
 
   def link resource
     if resource.image
