@@ -15,6 +15,10 @@
             = display resource
 
       %ul.notes
+        = form_for [ @project, Note.new ] do |f|
+          %li.form
+            %i.icon-plus-sign
+            = f.text_field :content
         - @project.notes.each do |note|
           %li
             = best_in_place note, :content, path: project_note_path( @project, note.id )
