@@ -13,8 +13,8 @@ module ProjectsHelper
   private
 
   def link resource
-    if !resource.image
-      return render 'prohects/resource/default_link', resource: resource
+    if !resource.image || resource.title
+      return render 'projects/resource/default_link', resource: resource
     else
       return render 'projects/resource/image_link', resource: resource
     end

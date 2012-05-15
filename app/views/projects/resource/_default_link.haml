@@ -1,2 +1,7 @@
 = link_to resource.value do
-  = resource.value
+  - if resource.title
+    = resource.title
+    %br
+    %i.icon-bookmark
+  - else
+    = resource.value
