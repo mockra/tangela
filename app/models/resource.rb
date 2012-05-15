@@ -28,6 +28,7 @@ class Resource < ActiveRecord::Base
   def link?
     if self.value =~ /\Ahttp|https|www|(:\/\/){0,1}\.{0,1}[a-z0-9-]{1,}\.{1}[^ ]*\Z/i
       set_image
+      self.value = ResourceParser.format_link self.value
       self.format = 'link'
     end
   end

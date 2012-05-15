@@ -14,15 +14,9 @@ module ProjectsHelper
 
   def link resource
     if resource.image
-      display_image_link resource
+      return render 'projects/resource/image_link', resource: resource
     else
       display_default_link resource
-    end
-  end
-
-  def display_image_link resource
-    link_to resource.value, class: 'img-link' do
-      image_tag resource.image
     end
   end
 
