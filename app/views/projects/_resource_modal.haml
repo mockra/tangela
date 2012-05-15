@@ -4,6 +4,12 @@
   .modal-body
     %p
       = form_for [ @project, @resource ] do |f|
+        Title
+        %i
+          %small *optional
+        %br
+        = f.text_field :title
+        %br
         = f.text_field :value
         %hr
         .footer

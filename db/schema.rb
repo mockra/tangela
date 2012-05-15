@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120509201953) do
+ActiveRecord::Schema.define(:version => 20120515193519) do
 
   create_table "notes", :force => true do |t|
     t.integer  "user_id"
@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(:version => 20120509201953) do
     t.datetime "updated_at", :null => false
     t.integer  "position"
     t.string   "image"
+    t.string   "title"
   end
 
   add_index "resources", ["project_id"], :name => "index_resources_on_project_id"

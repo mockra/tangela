@@ -2,7 +2,7 @@ require 'resource_parser'
 
 class Resource < ActiveRecord::Base
 
-  attr_accessible :value
+  attr_accessible :value, :title
 
   before_save :find_format
 
