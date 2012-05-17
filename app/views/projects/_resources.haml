@@ -1,0 +1,4 @@
+%ul.resources.resources-sortable{ url: "#{sort_resources_url}" }
+  - @resources.each do |resource|
+    = content_tag_for :li, resource do
+      = display resource

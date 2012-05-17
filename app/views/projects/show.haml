@@ -8,22 +8,7 @@
           = link_to project_resources_path(@project), class: 'btn' do
             %i.icon-pencil
     .lists
-
-      %ul.resources.resources-sortable{ url: "#{sort_resources_url}" }
-        - @resources.each do |resource|
-          = content_tag_for :li, resource do
-            = display resource
-
-      %ul.notes
-        = form_for [ @project, Note.new ] do |f|
-          %li.form
-            %i.icon-plus-sign
-            = f.text_field :content
-        - @project.notes.each do |note|
-          %li
-            = best_in_place note, :content, path: project_note_path( @project, note.id )
-            .pull-right
-              = link_to project_note_path( @project, note ), method: :delete do
-                %span.close &times;
+      = render 'resources'
+      = render 'notes'
 
 = render 'resource_modal'
