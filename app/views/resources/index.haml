@@ -1,12 +1,13 @@
-.resources-index.span10.offset1
-  .page-header
-    %h3
-      Resources for
-      = link_to @project.name, @project
-  %table.resource-list.table.table-striped
-    - @resources.each do |resource|
-      %tr
-        %td= resource.value
-        %td
-          = link_to project_resource_path( @project, resource ), method: :delete do
-            %i.icon-trash
+.row
+  .resources-index.span10.offset1
+    .page-header
+      %h3
+        Resources for
+        = link_to @project.name, @project
+    %table.resource-list.table.table-striped
+      - @resources.each do |resource|
+        %tr
+          %td= resource.value
+          %td
+            = link_to project_resource_path( @project, resource ), method: :delete do
+              %i.icon-trash

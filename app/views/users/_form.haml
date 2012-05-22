@@ -1,16 +1,22 @@
 .user-form
   = form_for @user do |f|
-    .field
-      = f.label :email
-      = f.text_field :email
-    .field
-      = f.label :name
-      = f.text_field :name
-    .field
-      = f.label :password
-      = f.password_field :password
-    .field
-      = f.label :password_confirmation
-      = f.password_field :password_confirmation
-    .action
-      = f.submit 'Log in'
+    %fieldset
+      %legend Register
+      .control-group
+        = f.label :email, 'Email', class: 'control-label'
+        .controls
+          = f.text_field :email
+      .control-group
+        = f.label :name, 'Name', class: 'control-label'
+        .controls
+          = f.text_field :name
+      .control-group
+        = f.label :password, 'Password', class: 'control-label'
+        .controls
+          = f.password_field :password
+      .control-group
+        = f.label :password_confirmation, 'Password', class: 'control-label'
+        .controls
+          = f.password_field :password_confirmation
+      .form-actions
+        = f.submit 'Register', class: 'btn'
