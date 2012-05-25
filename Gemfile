@@ -17,6 +17,7 @@ group :test do
 
   gem 'ruby_gntp'
   gem 'guard-rspec'
+  gem 'database_cleaner'
 end
 
 group :production do
@@ -35,7 +36,6 @@ end
 
 gem 'jquery-rails'
 gem 'haml'
-gem 'database_cleaner'
 
 gem 'best_in_place'
 gem 'nokogiri'
