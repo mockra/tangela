@@ -35,6 +35,7 @@ end
 
 gem 'jquery-rails'
 gem 'haml'
+gem 'database_cleaner'
 
 gem 'best_in_place'
 gem 'nokogiri'

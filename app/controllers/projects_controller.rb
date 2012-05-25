@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
 
-  before_filter :project, except: [ :index, :new, :create ]
   before_filter :authenticate
+  before_filter :project, except: [ :index, :new, :create ]
 
   def index
     @projects = current_user.projects.all
