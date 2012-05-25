@@ -8,4 +8,11 @@ module UserMacros
     cookies[:auth_token] = nil
   end
 
+  def login_as user
+    visit login_path
+    fill_in 'email', with: user.email
+    fill_in 'password', with: user.password
+    click_button 'Log In'
+  end
+
 end
