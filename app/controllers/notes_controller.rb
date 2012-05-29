@@ -27,8 +27,12 @@ class NotesController < ApplicationController
   end
 
   def destroy
-    @project.notes.find(params[:id]).destroy
-    redirect_to @project
+    @note = @project.notes.find params[:id]
+    @note.destroy
+    respond_to do |format|
+      format.html { redirect_to @project }
+      format.js { render layout: false }
+    end
   end
 
 end

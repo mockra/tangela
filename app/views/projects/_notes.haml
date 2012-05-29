@@ -1,9 +1,9 @@
-%ul.notes
-  = form_for [ @project, Note.new ], remote: true do |f|
-    %li.form
-      %i.icon-plus-sign
-      = f.text_field :content
+%span.notes
+  %ul.notes
+    = form_for [ @project, Note.new ], remote: true do |f|
+      %li.form
+        %i.icon-plus-sign
+        = f.text_field :content
 
-  - @project.notes.each do |note|
-    %li
+    - @project.notes.each do |note|
       = render 'notes/note', note: note, project: @project
