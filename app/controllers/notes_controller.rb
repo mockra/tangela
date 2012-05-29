@@ -1,7 +1,7 @@
 class NotesController < ApplicationController
 
   before_filter :authenticate, :project
-  respond_to :html, :json
+  respond_to :html, :json, :js
 
   def new
     @note = @project.notes.build
@@ -11,8 +11,11 @@ class NotesController < ApplicationController
     @note = @project.notes.build params[:note]
     @note.user_id = current_user.id
     if @note.save
-      redirect_to @project, notice:
-        'Note created.'
+      respond_to do |format|
+        format.html { redirect_to @project, notice:
+          'Note created.' }
+        format.js { render layout: false }
+      end
     else
       render :new
     end

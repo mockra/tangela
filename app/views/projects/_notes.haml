@@ -1,5 +1,5 @@
 %ul.notes
-  = form_for [ @project, Note.new ] do |f|
+  = form_for [ @project, Note.new ], remote: true do |f|
     %li.form
       %i.icon-plus-sign
       = f.text_field :content
