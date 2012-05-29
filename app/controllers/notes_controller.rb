@@ -12,8 +12,7 @@ class NotesController < ApplicationController
     @note.user_id = current_user.id
     if @note.save
       respond_to do |format|
-        format.html { redirect_to @project, notice:
-          'Note created.' }
+        format.html { redirect_to @project }
         format.js { render layout: false }
       end
     else
@@ -29,8 +28,7 @@ class NotesController < ApplicationController
 
   def destroy
     @project.notes.find(params[:id]).destroy
-    redirect_to @project, notice:
-      'Note deleted.'
+    redirect_to @project
   end
 
 end

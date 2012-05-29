@@ -1,0 +1,5 @@
+%li
+  = best_in_place note, :content, path: project_note_path( project, note.id )
+  .pull-right
+    = link_to project_note_path( project, note ), method: :delete do
+      %span.close &times;
