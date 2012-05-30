@@ -10,6 +10,7 @@ Tangela::Application.routes.draw do
   match 'login' => 'sessions#new', as: :login
   match 'login' => 'sessions#new', as: :login
   match 'resources/sort' => 'resources#sort', as: :sort_resources, via: [ :post ]
+  match 'notes/sort' => 'notes#sort', as: :sort_notes, via: [ :post ]
 
   resources :users
   resources :sessions, only: [ :create, :destroy, :new ]
