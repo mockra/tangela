@@ -5,6 +5,7 @@ class Note < ActiveRecord::Base
   belongs_to :user
   belongs_to :project
 
+  default_scope order: 'position'
   scope :top, order('updated_at DESC').limit(5)
 
   validates_presence_of :content, :user_id, :project_id

@@ -31,7 +31,7 @@ class NotesController < ApplicationController
   def destroy
     @note = @project.notes.find params[:id]
     @note.destroy
-    @notes = @project.notes.order 'position'
+    @notes = @project.notes
 
     respond_to do |format|
       format.html { redirect_to @project }

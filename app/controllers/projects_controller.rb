@@ -8,8 +8,8 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @resources = @project.resources.order 'position'
-    @notes = @project.notes.order 'position'
+    @resources = @project.resources
+    @notes = @project.notes
   end
 
   def new
