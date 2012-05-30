@@ -3,7 +3,7 @@
     %h3 New Resource
   .modal-body
     %p
-      = form_for [ @project, @resource ] do |f|
+      = form_for [ @project, Resource.new ] do |f|
         Title
         %i
           %small *optional

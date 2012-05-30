@@ -11,6 +11,7 @@ class NotesController < ApplicationController
   def create
     @note = @project.notes.build params[:note]
     @note.user_id = current_user.id
+
     if @note.save
       respond_to do |format|
         format.html { redirect_to @project }
@@ -31,6 +32,7 @@ class NotesController < ApplicationController
     @note = @project.notes.find params[:id]
     @note.destroy
     @notes = @project.notes.order 'position'
+
     respond_to do |format|
       format.html { redirect_to @project }
       format.js { render layout: false }

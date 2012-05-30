@@ -1,9 +1,9 @@
+.new_note_form
+  %i.icon-plus-sign
+  = form_for [ @project, Note.new ], remote: true do |f|
+    = f.text_field :content
+
 %span.notes
   %ul.notes.sortable{ url: "#{sort_notes_url}" }
-    = form_for [ @project, Note.new ], remote: true do |f|
-      %li.form
-        %i.icon-plus-sign
-        = f.text_field :content
-
     - @notes.each do |note|
       = render 'notes/note', note: note, project: @project

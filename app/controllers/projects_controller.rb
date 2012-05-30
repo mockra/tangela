@@ -10,7 +10,6 @@ class ProjectsController < ApplicationController
   def show
     @resources = @project.resources.order 'position'
     @notes = @project.notes.order 'position'
-    @resource = @project.resources.build
   end
 
   def new

@@ -14,6 +14,7 @@ class ResourcesController < ApplicationController
   def create
     @resource = @project.resources.build params[:resource]
     @resource.user_id = current_user.id
+
     if @resource.save
       redirect_to @project, notice:
         'Resource created.'
