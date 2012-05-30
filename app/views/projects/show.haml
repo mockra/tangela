@@ -9,6 +9,12 @@
             %i.icon-pencil
     .lists
       = render 'resources/resources'
+
+      .new_note_form
+        %i.icon-plus-sign
+        = form_for [ @project, Note.new ], remote: true do |f|
+          = f.text_field :content
+
       = render 'notes/notes'
 
 = render 'resources/resource_modal'

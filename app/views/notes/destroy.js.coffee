@@ -1,5 +1,5 @@
 $('span.notes').html(
-  '<%= escape_javascript( render "projects/notes" ) %>'
+  '<%= escape_javascript( render "notes" ) %>'
   )
 
 $('.best_in_place').best_in_place()
