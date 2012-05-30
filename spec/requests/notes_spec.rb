@@ -18,6 +18,12 @@ describe "Notes" do
         page.evaluate_script "document.forms[0].submit()"
       end.should change( Note, :count ).by 1
     end
+
+    it 'should show the new note', js: true do
+      fill_in 'note_content', with: 'test note'
+      page.evaluate_script "document.forms[0].submit()"
+      page.should have_content 'test note'
+    end
   end
 
   describe 'index' do
