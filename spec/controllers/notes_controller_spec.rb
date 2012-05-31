@@ -36,10 +36,27 @@ describe NotesController do
     before do
       @note = create :note, project: @project, user: @user
     end
+
     it 'should delete a note' do
       lambda do
         post :destroy, id: @note, project_id: @project
       end.should change( Note, :count ).by -1
+    end
+  end
+
+  describe 'sort' do
+    before do
+      @note = create :note, project: @project, user: @user
+      @note_two = create :note, project: @project, user: @user
+      @notes = [ @note_two.id, @note.id ]
+    end
+
+    it 'should update the position' do
+      post :sort, note: @notes
+      @note.reload
+      @note.position.should == 1
+      @note_two.reload
+      @note_two.position.should == 0
     end
   end
 

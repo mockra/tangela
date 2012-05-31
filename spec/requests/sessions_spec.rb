@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe "Sessions" do
+
   before do
     @user = create :user
   end
@@ -23,4 +24,5 @@ describe "Sessions" do
       page.should_not have_content @user.name
     end
   end
+
 end

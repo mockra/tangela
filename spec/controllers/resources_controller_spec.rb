@@ -73,4 +73,20 @@ describe ResourcesController do
     end
   end
 
+  describe 'sort' do
+    before do
+      @resource = create :resource, project: @project, user: @user
+      @resource_two = create :resource, project: @project, user: @user
+      @resources = [ @resource_two.id, @resource.id ]
+    end
+
+    it 'should update the position' do
+      post :sort, resource: @resources
+      @resource.reload
+      @resource.position.should == 1
+      @resource_two.reload
+      @resource_two.position.should == 0
+    end
+  end
+
 end

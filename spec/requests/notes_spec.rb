@@ -1,6 +1,7 @@
 require 'spec_helper'
 
 describe "Notes" do
+
   before do
     @user = create :user
     login_as @user
@@ -51,4 +52,5 @@ describe "Notes" do
       page.should have_content 'updated content'
     end
   end
+
 end
