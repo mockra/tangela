@@ -60,4 +60,16 @@ describe NotesController do
     end
   end
 
+  describe 'completed' do
+    before do
+      @note = create :note, project: @project, user: @user
+    end
+
+    it 'should update completed_at' do
+      post :completed, project_id: @project, id: @note
+      @note.reload
+      @note.completed_at.should_not be_nil
+    end
+  end
+
 end

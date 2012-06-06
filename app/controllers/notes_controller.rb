@@ -46,4 +46,9 @@ class NotesController < ApplicationController
     render nothing: true
   end
 
+  def completed
+    @note = @project.notes.find params[:id]
+    @note.update_attribute :completed_at, Time.now
+  end
+
 end
