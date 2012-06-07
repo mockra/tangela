@@ -1,8 +1,8 @@
 jQuery ->
   $('.best_in_place').best_in_place()
 
-  $('ul.notes.sortable').sortable
+  $('table.notes.sortable tbody').sortable
     axis: 'y'
     handle: '.handle'
     update: ->
-      $.post( $(this).attr( 'url' ), $(this).sortable 'serialize' )
+      $.post( $('table.notes.sortable').attr( 'url' ), $(this).sortable 'serialize' )
