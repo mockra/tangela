@@ -6,3 +6,10 @@ jQuery ->
     handle: '.handle'
     update: ->
       $.post( $('table.notes.sortable').attr( 'url' ), $(this).sortable 'serialize' )
+
+  $('td.note-completed input.checkbox').click ->
+    project = $('h1.project').attr 'id'
+    note = $(this).attr 'id'
+    $.post(
+      $('td.note-completed').attr('url'), { project_id: project, id: note }
+    )
