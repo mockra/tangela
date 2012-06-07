@@ -1,15 +1,19 @@
 jQuery ->
-  $('.best_in_place').best_in_place()
 
-  $('table.notes.sortable tbody').sortable
-    axis: 'y'
-    handle: '.handle'
-    update: ->
-      $.post( $('table.notes.sortable').attr( 'url' ), $(this).sortable 'serialize' )
+  $('span.notes').delegate 'tr.note', 'hover', ->
+    $('table.notes.sortable tbody').sortable
+      axis: 'y'
+      handle: '.handle'
+      update: ->
+        $.post( $('table.notes.sortable').attr( 'url' ), $(this).sortable 'serialize' )
+    $('.best_in_place').best_in_place()
 
-  $('td.note-completed input.checkbox').click ->
-    project = $('h1.project').attr 'id'
+  $('span.notes').delegate 'td.note-completed input.checkbox', 'click', ->
+    project = $('h1.project-title').attr 'id'
     note = $(this).attr 'id'
-    $.post(
-      $('td.note-completed').attr('url'), { project_id: project, id: note }
-    )
+    $.ajax({
+      type: 'POST',
+      url: $('td.note-completed').attr('url'),
+      dataType: 'script',
+      data: { project_id: project, id: note }
+    })

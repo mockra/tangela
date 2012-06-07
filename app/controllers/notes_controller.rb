@@ -54,6 +54,7 @@ class NotesController < ApplicationController
       @note.update_attribute :completed_at, nil
     end
 
+    @notes = @project.notes.sorted
     respond_to do |format|
       format.html { redirect_to @project }
       format.js { render layout: false }
