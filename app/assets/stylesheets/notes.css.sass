@@ -1,16 +1,15 @@
 @import 'bootstrap/mixins'
 
 .project
-  ul.notes
-    list-style-type: none
+  table.notes
     padding: 4px
 
-    li
+    tr
       padding: 8px 5px 8px 5px
       @include border-radius
       border-bottom: 1px inset #eee
 
-    li:hover
+    tr:hover
       background-color: rgba(209, 209, 209, .1)
 
     input
@@ -34,11 +33,16 @@ form.new_note
     @include box-shadow(0 0 0)
     width: 600px
 
-.note-links
-  width: 40px
+td.note-links
+  width: 20px
+  padding-bottom: 8px
 
-.note-content
+td.note-content
   width: 600px
+  padding-right: 14px
 
-.note-handle
+td.note-handle
   width: 30px
+
+td.note-completed
+  width: 20px
