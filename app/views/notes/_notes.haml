@@ -4,6 +4,7 @@
       - @notes.each do |note|
         = render 'notes/note', note: note, project: @project
   %br
-  %button.btn.plus
-    %i.icon-plus
-    %small= "(#{@project.notes.completed.count})"
+  - if @project.notes.completed.count > 0
+    %button.btn.plus
+      %i.icon-plus
+      %small= "(#{@project.notes.completed.count})"
