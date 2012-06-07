@@ -4,7 +4,7 @@ class ResourcesController < ApplicationController
   before_filter :project, except: [ :sort ]
 
   def index
-    @resources = @project.resources.all
+    @resources = @project.resources.sorted
   end
 
   def new

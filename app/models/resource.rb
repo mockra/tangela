@@ -9,7 +9,7 @@ class Resource < ActiveRecord::Base
   belongs_to :user
   belongs_to :project
 
-  default_scope order: 'position'
+  scope :sorted, order: 'position'
 
   validates_presence_of :value, :user_id, :project_id
 

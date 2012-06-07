@@ -31,7 +31,7 @@ class NotesController < ApplicationController
   def destroy
     @note = @project.notes.find params[:id]
     @note.destroy
-    @notes = @project.notes
+    @notes = @project.notes.sorted
 
     respond_to do |format|
       format.html { redirect_to @project }
@@ -48,7 +48,16 @@ class NotesController < ApplicationController
 
   def completed
     @note = @project.notes.find params[:id]
-    @note.update_attribute :completed_at, Time.now
+    if @note.completed_at.nil?
+      @note.update_attribute :completed_at, Time.now
+    else
+      @note.update_attribute :completed_at, nil
+    end
+
+    respond_to do |format|
+      format.html { redirect_to @project }
+      format.js { render layout: false }
+    end
   end
 
 end
