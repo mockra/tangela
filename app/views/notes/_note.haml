@@ -1,13 +1,20 @@
-= content_tag_for :tr, note do
+- if note.completed_at
+  - format = 'completed'
+- else
+  - format = 'incomplete'
+= content_tag_for :tr, note, class: format do
 
   %td.note-handle
-    %i.icon-minus.handle
+    %i.icon-chevron-right.handle
 
   %td.note-content
     = best_in_place note, :content, path: project_note_path( project, note.id )
 
   %td.note-completed{ url: "#{completed_note_url}" }
-    %input.checkbox{ type: "checkbox", id: "#{note.id}" }
+    - if note.completed_at
+      %input.checkbox.completed{ type: "checkbox", id: "#{note.id}", checked: true }
+    - else
+      %input.checkbox{ type: "checkbox", id: "#{note.id}" }
 
   %td.note-links
     = link_to project_note_path( project, note ), method: :delete, remote: true do

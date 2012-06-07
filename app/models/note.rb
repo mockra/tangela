@@ -7,6 +7,7 @@ class Note < ActiveRecord::Base
 
   scope :sorted, order('completed_at ASC').order('position')
   scope :top, order('updated_at DESC').limit(5)
+  scope :completed, where('completed_at IS NOT NULL')
 
   validates_presence_of :content, :user_id, :project_id
 
