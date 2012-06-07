@@ -1,13 +1,11 @@
-= content_tag_for :li, note do
+= content_tag_for :tr, note do
 
-  .note-handle.pull-left
+  %td.note-handle
     %i.icon-minus.handle
 
-  .note-content.pull-left
+  %td.note-content
     = best_in_place note, :content, path: project_note_path( project, note.id )
 
-  .pull-right.note-links
+  %td.note-links
     = link_to project_note_path( project, note ), method: :delete, remote: true do
       %span.close &times;
-
-  %br( clear="both" )

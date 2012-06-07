@@ -1,4 +1,4 @@
 %span.notes
-  %ul.notes.sortable{ url: "#{sort_notes_url}" }
+  %table.notes.sortable{ url: "#{sort_notes_url}" }
     - @notes.each do |note|
       = render 'notes/note', note: note, project: @project
