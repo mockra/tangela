@@ -5,18 +5,17 @@ jQuery ->
       axis: 'y'
       handle: '.handle'
       update: ->
-        $.post( $('table.notes.sortable').attr( 'url' ), $(this).sortable 'serialize' )
+        $.post $('table.notes.sortable').attr( 'url' ), $(this).sortable 'serialize'
     $('.best_in_place').best_in_place()
 
   $('span.notes').delegate 'td.note-completed input.checkbox', 'click', ->
     project = $('h1.project-title').attr 'id'
     note = $(this).attr 'id'
-    $.ajax({
-      type: 'POST',
-      url: $('td.note-completed').attr('url'),
-      dataType: 'script',
+    $.ajax
+      type: 'POST'
+      url: $('td.note-completed').attr('url')
+      dataType: 'script'
       data: { project_id: project, id: note }
-    })
 
   $('span.notes').delegate 'button.plus', 'click', ->
     $('tr.completed').show()

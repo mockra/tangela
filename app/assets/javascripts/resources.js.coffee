@@ -7,4 +7,4 @@ jQuery ->
 
   $('.resources-sortable').sortable
     update: ->
-      $.post( $(this).attr( 'url' ), $(this).sortable 'serialize' )
+      $.post $(this).attr( 'url' ), $(this).sortable 'serialize'

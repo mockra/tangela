@@ -1,3 +1,1 @@
-$('span.notes').html(
-  '<%= escape_javascript( render "notes" ) %>'
-  )
+$('span.notes').html '<%= escape_javascript( render "notes" ) %>'
