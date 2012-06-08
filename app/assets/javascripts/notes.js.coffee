@@ -8,7 +8,7 @@ jQuery ->
         $.post $('table.notes.sortable').attr( 'url' ), $(this).sortable 'serialize'
     $('.best_in_place').best_in_place()
 
-  $('span.notes').delegate 'td.note-completed input.checkbox', 'click', ->
+  $('span.notes').delegate 'td.note-completed input.checkbox', 'hover', ->
     project = $('h1.project-title').attr 'id'
     note = $(this).attr 'id'
     $.ajax

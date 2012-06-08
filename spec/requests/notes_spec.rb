@@ -53,4 +53,24 @@ describe "Notes" do
     end
   end
 
+  describe 'completed', js: true do
+    before do
+      @note = create :note, user: @user, project: @project
+      @completed_note = create :note, user: @user, project: @project, 
+        completed_at: Time.now, content: 'completed note'
+      visit project_path @project
+    end
+
+    it 'should mark the note as complete' do
+      find( :css, 'input.checkbox' ).click
+      @note.reload
+      @note.completed_at.should_not be_nil
+    end
+
+    it 'should display completed notes on button click' do
+      find( :css, 'button.plus' ).click
+      find( 'tr', text: @completed_note.content ).should be_visible
+    end
+  end
+
 end
