@@ -63,6 +63,7 @@ describe "Notes" do
 
     it 'should mark the note as complete' do
       find( :css, 'input.checkbox' ).click
+      find( :css, 'input.checkbox' ).click
       @note.reload
       @note.completed_at.should_not be_nil
     end

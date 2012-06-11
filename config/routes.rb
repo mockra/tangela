@@ -8,6 +8,15 @@ Tangela::Application.routes.draw do
 
   mount Doorkeeper::Engine => '/oauth'
 
+  namespace :api do
+    namespace :v1 do
+      resources :projects do
+        resources :notes
+        resources :resources
+      end
+    end
+  end
+
   match 'logout' => 'sessions#destroy', as: :logout
   match 'login' => 'sessions#new', as: :login
   match 'login' => 'sessions#new', as: :login
@@ -24,6 +33,9 @@ Tangela::Application.routes.draw do
     resources :resources
     resources :notes
   end
+
+  resources :notes
+  resources :resources
 
   root to: 'projects#index', constraints:
     UserConstraint.new
