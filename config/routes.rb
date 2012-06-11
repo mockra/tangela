@@ -6,6 +6,8 @@ end
 
 Tangela::Application.routes.draw do
 
+  mount Doorkeeper::Engine => '/oauth'
+
   match 'logout' => 'sessions#destroy', as: :logout
   match 'login' => 'sessions#new', as: :login
   match 'login' => 'sessions#new', as: :login
