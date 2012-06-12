@@ -23,7 +23,7 @@ module Api
       end
 
       def update
-        respond_with project.resources.update params[:id], params[:note]
+        respond_with project.resources.update params[:id], params[:resource]
       end
 
       def destroy
