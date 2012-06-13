@@ -26,6 +26,17 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @project.update_attributes params[:project]
+      redirect_to projects_url
+    else
+      render :edit
+    end
+  end
+
   def destroy
     @project.destroy
     redirect_to projects_url, notice:

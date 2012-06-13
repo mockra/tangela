@@ -93,4 +93,44 @@ describe ProjectsController do
     end
   end
 
+  describe 'edit' do
+    before do
+      @project = create :project, user: @user
+    end
+
+    it 'should assign the project' do
+      get :edit, id: @project
+      assigns[:project].should == @project
+    end
+  end
+
+  describe 'update' do
+    before do
+      @project = create :project, user: @user
+    end
+
+    describe 'success' do
+      before do
+        @attr = { name: 'updated project' }
+      end
+
+      it 'should update the name' do
+        post :update, id: @project, project: @attr
+        @project.reload
+        @project.name.should == @attr[:name]
+      end
+    end
+
+    describe 'failure' do
+      before do
+        @attr = { name: '' }
+      end
+
+      it 'should render edit' do
+        post :update, id: @project, project: @attr
+        response.should render_template :edit
+      end
+    end
+  end
+
 end
