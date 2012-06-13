@@ -15,6 +15,10 @@
               %b.caret
             %ul.dropdown-menu
               %li
+                = link_to edit_user_path current_user do
+                  %i.icon-cog
+                  \ Settings
+              %li
                 = link_to logout_path do
                   %i.icon-off
                   \ Log out

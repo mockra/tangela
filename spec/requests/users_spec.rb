@@ -15,4 +15,18 @@ describe "Users" do
     end
   end
 
+  describe 'edit' do
+    before do
+      @user = create :user
+      login_as @user
+      visit edit_user_path @user
+    end
+
+    it 'should update user name' do
+      fill_in 'user_name', with: 'Updated Name'
+      click_button 'Submit'
+      page.should have_content 'Updated Name'
+    end
+  end
+
 end

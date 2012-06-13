@@ -1,0 +1,33 @@
+.row
+  .page-header.span12
+    %h1 Account Settings
+.row
+  .user-settings.span6.offset3
+    = form_for @user, class: 'form-horizontal' do |f|
+      %fieldset
+        %legend Edit Profile
+        .control-group
+          = f.label :email, class: 'control-label'
+          .controls
+            = f.text_field :email
+        .control-group
+          = f.label :name, class: 'control-label'
+          .controls
+            = f.text_field :name
+        %legend Change Password
+        .control-group
+          = f.label :password, class: 'control-label'
+          .controls
+            = f.password_field :password
+        .control-group
+          = f.label :password_confirmation, class: 'control-label'
+          .controls
+            = f.password_field :password_confirmation
+        .form-actions
+          = f.submit 'Submit', class: 'btn'
+        %legend Third Party Applications
+        = link_to doorkeeper.authorized_applications_path do
+          %button.btn.btn-primary.center Manage Access
+        %br
+        = link_to doorkeeper.applications_path do
+          %button.btn.btn-inverse.center Add your Application
