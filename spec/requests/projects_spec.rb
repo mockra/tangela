@@ -56,4 +56,17 @@ describe "Projects" do
     end
   end
 
+  describe 'edit' do
+    before do
+      @project = create :project, user: @user
+      visit edit_project_path @project
+    end
+
+    it 'should update the project' do
+      fill_in 'project_name', with: 'updated project'
+      click_button 'Submit'
+      page.should have_content 'updated project'
+    end
+  end
+
 end

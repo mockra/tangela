@@ -1,8 +1,7 @@
-.project-form.span6.offset3
-  .page-header
-    %h2 New Project
-  = form_for @project do |f|
-    .field
+= form_for @project do |f|
+  .control-group
+    = f.label :name, class: 'control-label'
+    .controls
       = f.text_field :name
-    .action
-      = f.submit 'Submit', class: 'btn'
+  .form-actions
+    = f.submit 'Submit', class: 'btn'
