@@ -1,0 +1,13 @@
+.navbar.navbar-fixed-top
+  .navbar-inner
+    .container
+      = link_to 'tangela', main_app.root_url, class: 'brand'
+      %ul.nav
+        %li.divider-vertical
+        %li= link_to 'Projects', main_app.projects_path
+
+      %ul.nav.pull-right
+        %li
+          = link_to 'Manage Access', authorized_applications_path
+        %li
+          = link_to 'Developer', applications_path
