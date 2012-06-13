@@ -51,7 +51,7 @@ describe "Projects" do
     it 'should create a new project' do
       lambda do
         fill_in 'project_name', with: 'project'
-        click_button 'Create Project'
+        click_button 'Submit'
       end.should change( Project, :count ).by 1
     end
   end
