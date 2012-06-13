@@ -31,4 +31,46 @@ describe UsersController do
     end
   end
 
+  describe 'edit' do
+    before do
+      @user = create :user
+      sign_in @user
+    end
+
+    it 'should assign the user' do
+      get :edit
+      assigns[:user].should == @user
+    end
+  end
+
+  describe 'update' do
+    before do
+      @user = create :user
+      sign_in @user
+    end
+
+    describe 'success' do
+      before do
+        @attr = { email: 'test@123.com' }
+      end
+
+      it 'should update the user' do
+        post :update, user: @attr
+        @user.reload
+        @user.email.should == @attr[:email]
+      end
+    end
+
+    describe 'failure' do
+      before do
+        @attr = { email: '' }
+      end
+
+      it 'should render edit' do
+        post :update, user: @attr
+        response.should render_template :edit
+      end
+    end
+  end
+
 end
