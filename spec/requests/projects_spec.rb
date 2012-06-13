@@ -67,6 +67,13 @@ describe "Projects" do
       click_button 'Submit'
       page.should have_content 'updated project'
     end
+
+    it 'should delete the project', js: true do
+      lambda do
+        click_button 'Destroy Project'
+        page.driver.browser.switch_to.alert.accept
+      end.should change( Project, :count ).by -1
+    end
   end
 
 end

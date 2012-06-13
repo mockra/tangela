@@ -4,3 +4,10 @@
       Edit
       = @project.name
   = render 'form'
+  .page-header
+    %h2
+      Delete
+      = @project.name
+  = link_to @project, method: :delete, confirm: 'Are you sure?' do
+    %button.btn.btn-danger.project-delete
+      Destroy Project
