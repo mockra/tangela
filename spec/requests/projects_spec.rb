@@ -74,6 +74,12 @@ describe "Projects" do
         page.driver.browser.switch_to.alert.accept
       end.should change( Project, :count ).by -1
     end
+
+    it 'should change project color' do
+      select 'Blue', from: 'project_color'
+      click_button 'Submit'
+      find(:xpath, './/a[@class="Blue"]').should be_visible
+    end
   end
 
 end

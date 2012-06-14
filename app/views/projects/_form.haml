@@ -3,5 +3,10 @@
     = f.label :name, class: 'control-label'
     .controls
       = f.text_field :name
+  .control-group
+    = f.label :color, class: 'control-label'
+    .controls
+      - colors = %w[ Default Red Blue Green Yellow Orange Pink Purple ]
+      = f.select :color, colors
   .form-actions
     = f.submit 'Submit', class: 'btn'

@@ -2,7 +2,7 @@
   .project.span10.offset1
     .title
       %h1.project-title{ id: "#{@project.id}" }
-        = @project.name
+        = link_to @project.name, projects_path, class: "#{@project.color}"
         .pull-right
           %a.btn.resource-btn New Resource
           = link_to project_resources_path(@project), class: 'btn' do

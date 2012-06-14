@@ -6,7 +6,7 @@
     - @projects.each do |project|
       .projects-box
         %h1
-          = link_to project.name, project
+          = link_to project.name, project, class: "#{project.color}"
           = link_to edit_project_path project do
             %i.icon-edit
         %ul.notes
