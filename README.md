@@ -10,7 +10,7 @@ have to create.
 ## Demo
 
 You can see a preview of the application here:
-[Tangela](http://tangela.herokuapp.com/)
+[Tangela](http://tangela.info)
 
 ## Testing
 Tangela uses RSpec, Capybara, Shoulda, and Factory Girls in its
