@@ -18,3 +18,5 @@ pickle-email-*.html
 =======
 pickle-email-*.html
 >>>>>>> b82f8fecf8ff16372042f3f0a5545070d5697693
+config/deploy.rb
+config/recipes/
