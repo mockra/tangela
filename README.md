@@ -1,4 +1,5 @@
 # Tangela
+
 Tangela is a project colloboration tool that offers a simple visual
 interface for organizing projects and resources.
 
@@ -13,6 +14,7 @@ You can see a preview of the application here:
 [Tangela](http://tangela.info)
 
 ## Testing
+
 Tangela uses RSpec, Capybara, Shoulda, and Factory Girls in its
 tests. By default javascript testing is done using Selenium and the
 ChromeDriver. If you want to use Firefox as your browser, then remove
@@ -26,6 +28,11 @@ Capybara.register_driver :selenium do |app|
   Capybara::Selenium::Driver.new(app, :browser => :chrome)
 end
 ```
+
+## API
+
+Here's a general guide to the API implementation:
+[API Wiki](https://github.com/mockra/tangela/wiki/Api-Guide)
 
 ## Author
 
