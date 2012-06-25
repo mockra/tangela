@@ -33,6 +33,7 @@ group :assets do
 end
 
 gem 'uglifier', '>= 1.0.3'
+gem 'coffeebeans'
 gem 'coffee-rails', '~> 3.2.1'
 gem 'jquery-rails'
 gem 'haml'
